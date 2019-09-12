@@ -54,4 +54,14 @@ Project Organization
 
 --------
 
+# Setup
+```sh
+cd $PROJECT_DIR
+make create_environment
+make requirements
+
+conda install ipykernel
+python3 -m ipykernel install --user --name valence --display-name="valence"
+```
+
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
