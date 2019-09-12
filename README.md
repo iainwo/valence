@@ -60,6 +60,10 @@ cd $PROJECT_DIR
 make create_environment
 make requirements
 
+# Install JupyterLab
+conda install -c conda-forge jupyterlab
+
+# Setup kernel framework for JupyterLab
 conda install ipykernel
 python3 -m ipykernel install --user --name valence --display-name="valence"
 ```
