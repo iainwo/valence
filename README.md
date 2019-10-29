@@ -17,8 +17,7 @@ Project Organization
     │
     ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
     │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
+    ├── models             <- Trained and serialized models, model predictions, or model summaries │
     ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
     │                         the creator's initials, and a short `-` delimited description, e.g.
     │                         `1.0-jqp-initial-data-exploration`.
@@ -66,6 +65,36 @@ conda install -c conda-forge jupyterlab
 # Setup kernel framework for JupyterLab
 conda install ipykernel
 python3 -m ipykernel install --user --name valence --display-name="valence"
+```
+
+Run this script to setup Plotly for JupyterLab
+```
+# Avoid "JavaScript heap out of memory" errors during extension installation
+# (OS X/Linux)
+export NODE_OPTIONS=--max-old-space-size=4096
+# (Windows)
+#set NODE_OPTIONS=--max-old-space-size=4096
+
+# Jupyter widgets extension
+jupyter labextension install @jupyter-widgets/jupyterlab-manager@1.0 --no-build
+
+# jupyterlab renderer support
+jupyter labextension install jupyterlab-plotly@1.1.0 --no-build
+
+# FigureWidget support
+jupyter labextension install plotlywidget@1.1.0 --no-build
+
+# JupyterLab chart editor support (optional)
+jupyter labextension install jupyterlab-chart-editor@1.2 --no-build
+
+# Build extensions (must be done to activate extensions since --no-build is used above)
+jupyter lab build
+
+# Unset NODE_OPTIONS environment variable
+# (OS X/Linux)
+unset NODE_OPTIONS
+# (Windows)
+#set NODE_OPTIONS=
 ```
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
