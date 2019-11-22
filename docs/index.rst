@@ -13,6 +13,8 @@ Contents:
 
    getting-started
    commands
+   the-intelligent-investor-notes
+   financial-data-providers
 
 
 
